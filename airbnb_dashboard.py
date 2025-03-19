@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
+import os
 # Load Data
-data = pd.read_csv("airbnb.csv")
+csv_file = os.path.join(os.path.dirname(__file__), "airbnb.csv")
+data = pd.read_csv(csv_file)
 
 # Clean Data
 data = data.dropna(subset=['room_type', 'price', 'number_of_reviews', 'neighbourhood', 'availability_365'])
